@@ -45,7 +45,7 @@ export class Menu {
           label: 'Clientes',
           route: '**',
           children: [
-            { label: 'Clientes', route: '/dashboard' },
+            { label: 'Clientes', route: '/components/clientes-table' },
             { label: 'Clientes potenciales', route: '/dashboard' },
           ],
         },

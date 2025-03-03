@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { UikitComponent } from './uikit.component';
 import { TableComponent } from './pages/table/table.component';
 import { TicketsTableComponent } from './pages/tickets-table/tickets-table.component';
+import { ClientesTableComponent } from './pages/clientes-table/clientes-table.components';
 import { CommonModule } from '@angular/common';
 
 
@@ -15,6 +16,7 @@ const routes: Routes = [
       { path: 'table', component: TableComponent },
       { path: '**', redirectTo: 'errors/404' },
       {path: 'tickets-table', component: TicketsTableComponent},
+      {path: 'clientes-table', component: ClientesTableComponent}
     ],
   },
 ];
