@@ -1,0 +1,25 @@
+<div class="flex h-screen w-screen">
+  <div class="auth-bg bg-primary hidden flex-1 items-center justify-center bg-cover lg:flex">
+    <div class="max-w-2xl space-y-4 p-8 text-center text-white">
+      <img src="../assets/images/baner.jpg" alt="dashboard widget" />
+      <h1 class="text-4xl font-bold">gruposaom.com.mx</h1>
+      <p class="text-xs font-light">
+        Somos una empresa integradora 100% Mexicana líder de soluciones innovadoras para las verticales de seguridad,
+        redes y telecomunicación en hogares, hotelería, corporativos, industrias, hasta ciudades inteligentes.
+      </p>
+    </div>
+  </div>
+  <div class="bg-background flex flex-1 items-center justify-center">
+    <div class="max-w-md overflow-y-auto px-4 sm:w-[500px]">
+      <!-- logo -->
+      <div class="flex items-center justify-center">
+        <a class="bg-primary rounded-sm p-2">
+          <img src="../assets/images/saom.png" alt="logo" class="h-8 w-8" />
+        </a>
+        <b class="text-md text-foreground pl-3 font-bold"> Grupo SAOM</b>
+      </div>
+      <!-- Route -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
