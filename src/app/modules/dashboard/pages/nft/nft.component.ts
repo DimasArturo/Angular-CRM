@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {tablaPrincipalComponent } from '../../components/nft/tabla-principal-component/tabla-principal-component';
 import { NftHeaderComponent } from '../../components/nft/nft-header/nft-header.component';
 import { Nft } from '../../models/nft';
+import { GraphicComponent } from '../../components/nft/Estadisticas/grafica_circular/graphic-component';
+import { InformecpComponent } from '../../components/nft/Estadisticas/informe_clientes_potenciales/informecp-component';
 
 @Component({
   selector: 'app-nft',
@@ -9,6 +11,8 @@ import { Nft } from '../../models/nft';
   imports: [
     NftHeaderComponent,
     tablaPrincipalComponent,
+    GraphicComponent,
+    InformecpComponent
 ],
 })
 export class NftComponent implements OnInit {

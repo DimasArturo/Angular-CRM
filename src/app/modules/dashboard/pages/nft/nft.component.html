@@ -8,8 +8,15 @@
     <div app-tabla-principal [nft]="nft[0]" class="md:col-span-2"></div>
   </div>
 
-  <!-- Contenedor del gráfico con espacio -->
-  <div class="mt-8 flex justify-center">
-    <div app-graphic class="w-full max-w-4xl"></div>
-  </div>
+  <!-- Separador -->
+  <div class="my-8"></div>
+
+  <!-- Gráficas en columnas de dos -->
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <div class="p-4 bg-white rounded-lg shadow-md">
+      <app-graphic></app-graphic>
+    </div>
+    <div class="p-4 bg-white rounded-lg shadow-md">
+      <app-informecp></app-informecp>
+    </div>
 </div>
