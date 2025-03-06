@@ -1,5 +1,8 @@
 <div class="p-4">
-  <h2 class="text-2xl font-bold mb-4">Tickets</h2>
+  <div class="text-muted-foreground space-x-1 text-xs font-medium">
+    <a class="hover:text-primary">Total de Tickets</a>
+    <span class="text-foreground">{{ tickets.length }}</span>
+  </div>
 
   <!-- Barra de filtros -->
   <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
@@ -12,7 +15,7 @@
 
   <!-- Tabla -->
   <div class="overflow-x-auto">
-    <table class="w-full border-collapse text-left text-sm">
+    <table class="border-muted/20 text-muted-foreground border text-xs">
       <thead class="p-4">
         <tr>
           <th class="py-3 px-4 font-medium">ID</th>
