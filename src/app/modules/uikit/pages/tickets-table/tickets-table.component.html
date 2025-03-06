@@ -47,13 +47,15 @@
           </select>
 
           </td>
-
-          <!-- Prioridad -->
           <td class="py-3 px-4">
-            <span class="estado-label" [ngClass]="getPrioridadClass(ticket.prioridad)">
-              {{ ticket.prioridad }}
-            </span>
-          </td>
+              <select [(ngModel)]="ticket.prioridad"
+              class="border rounded px-2 py-1 text-sm w-auto min-w-[120px] max-w-full select-custom"
+              [ngClass]="getPrioridadClass(ticket.prioridad)">
+                <option value="Alta">Alta</option>
+                <option value="Media">Media</option>
+                <option value="Baja">Baja</option>
+              </select>
+            </td>
 
           <!-- Categoría -->
           <td class="py-2 px-1 text-left">
