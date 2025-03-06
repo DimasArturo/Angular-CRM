@@ -1,10 +1,15 @@
 <div>
   <!-- Header -->
   <app-nft-header></app-nft-header>
-  <!-- end Header -->
+  <!-- End Header -->
 
   <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
     <!-- Dual Card -->
-     <div app-tabla-principal [nft]="nft[0]" class="md:col-span-2" ></div>
+    <div app-tabla-principal [nft]="nft[0]" class="md:col-span-2"></div>
+  </div>
+
+  <!-- Contenedor del gráfico con espacio -->
+  <div class="mt-8 flex justify-center">
+    <div app-graphic class="w-full max-w-4xl"></div>
   </div>
 </div>

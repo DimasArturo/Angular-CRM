@@ -2,7 +2,7 @@ import { Cliente } from 'src/app/modules/uikit/model/clientes.model';
 
 export const clientesData: Cliente[] = [
   {
-    id: 1,
+    id: 1001,
     empresa: "Tech Solutions",
     nombre: "Juan",
     apellido: "Pérez",
@@ -12,17 +12,17 @@ export const clientesData: Cliente[] = [
     ciudad: "Ciudad de México"
   },
   {
-    id: 2,
-    empresa: "Innovatech",
-    nombre: "María",
+    id: 1002,
+    empresa: "Instituto Césare",
+    nombre: "Dimas",
     apellido: "López",
-    email: "maria.lopez@innovatech.com",
+    email: "sistemas@cesare.edu.mx",
     telefono: "555-5678",
     direccion: "Av. Reforma 456",
     ciudad: "Guadalajara"
   },
   {
-    id: 3,
+    id: 1003,
     empresa: "DataCorp",
     nombre: "Carlos",
     apellido: "Gómez",
@@ -32,7 +32,7 @@ export const clientesData: Cliente[] = [
     ciudad: "Monterrey"
   },
   {
-    id: 4,
+    id: 1004,
     empresa: "NetSolutions",
     nombre: "Ana",
     apellido: "Ramírez",
@@ -42,7 +42,7 @@ export const clientesData: Cliente[] = [
     ciudad: "Puebla"
   },
   {
-    id: 5,
+    id: 1005,
     empresa: "CyberSoft",
     nombre: "Luis",
     apellido: "Fernández",

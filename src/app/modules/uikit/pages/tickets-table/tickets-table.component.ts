@@ -3,13 +3,17 @@ import { Ticket } from 'src/app/modules/uikit/model/tickets.model';
 import { ticketsData } from '../../data-tables/tickets.data';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
 @Component({
   selector: 'app-tickets-table',
   templateUrl: './tickets-table.component.html',
-  imports: [CommonModule, FormsModule], // Asegúrate de importar CommonModule
-  styleUrls: ['./tickets-table.component.css']
+  imports: [CommonModule, FormsModule, MatFormFieldModule, MatSelectModule], // Asegúrate de importar CommonModule
+  styleUrls: ['./tickets-table.component.css'],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class TicketsTableComponent {
   tickets: Ticket[] = ticketsData;
@@ -50,5 +54,37 @@ filterByDate(): void {
     this.filteredTickets = [...this.tickets]; // Si no hay fecha seleccionada, mostrar todos los tickets
   }
 }
+
+estados = [
+  'Pendiente',
+  'En proceso',
+  'Seguimiento',
+  'Cerrado',
+  'Ganado',
+  'Perdido',
+  'Desestimado'
+];
+
+getStatusClass(status: string) {
+  return {
+    'bg-pendiente': status === 'Pendiente',
+    'bg-en-proceso': status === 'En proceso',
+    'bg-seguimiento': status === 'Seguimiento',
+    'bg-cerrado': status === 'Cerrado',
+    'bg-ganado': status === 'Ganado',
+    'bg-perdido': status === 'Perdido',
+    'bg-desestimado': status === 'Desestimado'
+  };
+}
+
+getPrioridadClass(prioridad: string) {
+  return {
+    'bg-alta': prioridad === 'Alta',
+    'bg-media': prioridad === 'Media',
+    'bg-baja': prioridad === 'Baja'
+  };
+}
+
+
 
 }

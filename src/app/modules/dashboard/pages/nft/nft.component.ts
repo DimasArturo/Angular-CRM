@@ -8,8 +8,8 @@ import { Nft } from '../../models/nft';
   templateUrl:'./nft.component.html',
   imports: [
     NftHeaderComponent,
-    tablaPrincipalComponent
-  ],
+    tablaPrincipalComponent,
+],
 })
 export class NftComponent implements OnInit {
   nft: Array<Nft>;

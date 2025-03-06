@@ -20,11 +20,7 @@ export class ClientesTableComponent {
 filterByText(): void {
   this.filteredClientes = this.Cliente.filter(cliente =>
     cliente.id.toString().includes(this.searchQuery) ||
-    cliente.empresa.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-    cliente.nombre.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-    cliente.apellido.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-    cliente.email.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-    cliente.telefono.toLowerCase().includes(this.searchQuery.toLowerCase())
+    cliente.empresa.toLowerCase().includes(this.searchQuery.toLowerCase())
   );
 }
 }

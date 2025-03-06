@@ -1,0 +1,65 @@
+
+
+/* Estilo para estados en etiquetas */
+.estado-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  min-width: 100px;
+  text-align: center;
+}
+
+/* Colores de los estados */
+.bg-pendiente {
+  background-color: #fefcbf; /* Amarillo */
+  color: #b7791f;
+}
+
+.bg-en-proceso {
+  background-color: #c6f6d5; /* Verde */
+  color: #2f855a;
+}
+
+.bg-seguimiento {
+  background-color: #feb2b2; /* Rojo */
+  color: #9b2c2c;
+}
+
+.bg-cerrado {
+  background-color: #bee3f8; /* Azul */
+  color: #2c5282;
+}
+
+.bg-ganado {
+  background-color: #d6bcfa; /* Morado */
+  color: #553c9a;
+}
+
+.bg-perdido {
+  background-color: #fbd38d; /* Naranja */
+  color: #9c4221;
+}
+
+.bg-desestimado {
+  background-color: #e2e8f0; /* Gris */
+  color: #2d3748;
+}
+
+/* Colores de prioridad */
+.bg-alta {
+  background-color: #f56565; /* Rojo */
+  color: white;
+}
+
+.bg-media {
+  background-color: #f6ad55; /* Naranja */
+  color: white;
+}
+
+.bg-baja {
+  background-color: #68d391; /* Verde */
+  color: white;
+}

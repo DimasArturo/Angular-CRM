@@ -1,68 +1,61 @@
 <div class="p-4">
-  <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
-    <!-- Filtro de búsqueda por texto -->
-    <input type="text" [(ngModel)]="searchQuery" (input)="filterByText()" placeholder="Buscar..."
-      class="border px-4 py-2 rounded-md w-full md:w-1/3 mb-2 md:mb-0" />
+  <h2 class="text-2xl font-bold mb-4">Tickets</h2>
 
-    <!-- Filtro de búsqueda por fecha -->
+  <!-- Barra de filtros -->
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+    <input type="text" [(ngModel)]="searchQuery" (input)="filterByText()" placeholder="Buscar..."
+    class="p-4"/>
+
     <input type="date" [(ngModel)]="selectedDate" (change)="filterByDate()"
-      class="border px-4 py-2 rounded-md w-full md:w-1/4" />
+    class="p-4"/>
   </div>
 
+  <!-- Tabla -->
   <div class="overflow-x-auto">
-    <table class="text-muted-foreground table w-full table-auto border-collapse border-0 text-left align-middle leading-5">
-      <thead class="border-muted/20 text-muted-foreground border text-xs">
-        <tr class="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
-          <th class="py-3 px-6 text-left">ID</th>
-          <th class="py-3 px-6 text-left">Título</th>
-          <th class="py-3 px-6 text-left">Empresa</th>
-          <th class="py-3 px-6 text-left">Estado</th>
-          <th class="py-3 px-6 text-left">Prioridad</th>
-          <th class="py-3 px-6 text-left">Categoría</th>
-          <th class="py-3 px-6 text-left">Fecha Generado</th>
-          <th class="py-3 px-6 text-left">Fecha_asignado</th>
-          <th class="py-3 px-6 text-left">Fecha_resuelto</th>
-          <th class="py-3 px-6 text-left">vendedor</th>
-          <th class="py-3 px-6 text-left">Observaciones</th>
+    <table class="w-full border-collapse text-left text-sm">
+      <thead class="p-4">
+        <tr>
+          <th class="py-3 px-4 font-medium">ID</th>
+          <th class="py-3 px-4 font-medium">TÍTULO</th>
+          <th class="py-3 px-4 font-medium">EMPRESA</th>
+          <th class="py-3 px-4 font-medium">ESTADO</th>
+          <th class="py-3 px-4 font-medium">PRIORIDAD</th>
+          <th class="py-3 px-4 font-medium">CATEGORÍA</th>
+          <th class="py-3 px-4 font-medium">FECHA GENERADO</th>
+          <th class="py-3 px-4 font-medium">VENDEDOR</th>
+          <th class="py-3 px-4 font-medium">OBSERVACIONES</th>
         </tr>
       </thead>
       <tbody class="text-gray-600 text-sm font-light">
-        <tr *ngFor="let ticket of filteredTickets" class="border-b border-gray-200 hover:bg-gray-50">
-          <td class="py-3 px-6 text-left">{{ ticket.id }}</td>
-          <td class="py-3 px-6 text-left">{{ ticket.titulo }}</td>
-          <td class="py-3 px-6 text-left">{{ ticket.empresa }}</td>
-          <td class="py-10 px-1 text-left">
-            <select [(ngModel)]="ticket.status" class="border rounded px-2 py-1 text-sm w-auto min-w-[120px] max-w-full"
-              [ngClass]="{
-                'bg-yellow-200 text-yellow-800': ticket.status === 'Pendiente',
-                'bg-green-200 text-green-800': ticket.status === 'En proceso',
-                'bg-red-200 text-red-800': ticket.status === 'Seguimiento',
-                'bg-blue-200 text-blue-800': ticket.status === 'Cerrado',
-                'bg-purple-200 text-purple-800': ticket.status === 'Ganado',
-                'bg-orange-200 text-orange-800': ticket.status === 'Perdido',
-                'bg-gray-200 text-gray-800': ticket.status === 'Desestimado'
-              }">
-              <option value="en proceso">Pendiente</option>
-              <option value="resuelto">En proceso</option>
-              <option value="pendiente">Seguimiento</option>
-              <option value="pendiente">Cerrado</option>
-              <option value="pendiente">Ganado</option>
-              <option value="pendiente">Perdido</option>
-              <option value="pendiente">Desestimado</option>
-            </select>
+        <tr *ngFor="let ticket of filteredTickets" class="border-b">
+          <td class="py-3 px-4">{{ ticket.id }}</td>
+          <td class="py-3 px-4">{{ ticket.titulo }}</td>
+          <td class="py-3 px-4">{{ ticket.empresa }}</td>
+
+          <!-- Estado -->
+          <td class="py-3 px-4">
+            <select [(ngModel)]="ticket.status"
+            class="border rounded px-2 py-1 text-sm w-auto min-w-[120px] max-w-full select-custom"
+            [ngClass]="getStatusClass(ticket.status)">
+            <option value="Pendiente">Pendiente</option>
+            <option value="En proceso">En proceso</option>
+            <option value="Seguimiento">Seguimiento</option>
+            <option value="Cerrado">Cerrado</option>
+            <option value="Ganado">Ganado</option>
+            <option value="Perdido">Perdido</option>
+            <option value="Desestimado">Desestimado</option>
+          </select>
+
           </td>
-          <td class="py-3 px-6 text-left">
-            <select [(ngModel)]="ticket.prioridad" class="border rounded px-2 py-1 text-sm"
-              [ngClass]="{
-                'bg-yellow-200 text-yellow-800': ticket.prioridad === 'Alta',
-                'bg-orange-200 text-orange-800': ticket.prioridad === 'Media',
-                'bg-gray-200 text-gray-800': ticket.prioridad === 'Baja'
-              }">
-              <option value="Alta">Alta</option>
-              <option value="Media">Media</option>
-              <option value="Baja">Baja</option>
-            </select>
+
+          <!-- Prioridad -->
+          <td class="py-3 px-4">
+            <span class="estado-label" [ngClass]="getPrioridadClass(ticket.prioridad)">
+              {{ ticket.prioridad }}
+            </span>
           </td>
+
+          <!-- Categoría -->
           <td class="py-2 px-1 text-left">
             <select [(ngModel)]="ticket.categoria" class="border rounded px-2 py-1 text-sm w-auto min-w-[120px] max-w-full">
               <option value="Seguridad">Seguridad</option>
@@ -70,11 +63,10 @@
               <option value="Redes">Redes</option>
             </select>
           </td>
-          <td class="py-3 px-6 text-left">{{ ticket.fecha_generado }}</td>
-          <td class="py-3 px-6 text-left">{{ ticket.fecha_asignado }}</td>
-          <td class="py-3 px-6 text-left">{{ ticket.fecha_resuelto }}</td>
-          <td class="py-3 px-6 text-left">{{ ticket.username }}</td>
-          <td class="py-3 px-6 text-left">{{ ticket.observaciones }}</td>
+
+          <td class="py-3 px-4">{{ ticket.fecha_generado }}</td>
+          <td class="py-3 px-4">{{ ticket.username }}</td>
+          <td class="py-3 px-4">{{ ticket.observaciones }}</td>
         </tr>
       </tbody>
     </table>

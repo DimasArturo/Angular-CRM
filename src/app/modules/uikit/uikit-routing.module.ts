@@ -5,6 +5,8 @@ import { TableComponent } from './pages/table/table.component';
 import { TicketsTableComponent } from './pages/tickets-table/tickets-table.component';
 import { ClientesTableComponent } from './pages/clientes-table/clientes-table.components';
 import { CommonModule } from '@angular/common';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 const routes: Routes = [
@@ -22,7 +24,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes), CommonModule],
+  imports: [RouterModule.forChild(routes), CommonModule, MatSelectModule, MatFormFieldModule],
   exports: [RouterModule],
 })
 export class UikitRoutingModule {}
