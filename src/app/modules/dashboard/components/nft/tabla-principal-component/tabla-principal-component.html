@@ -1,77 +1,60 @@
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-  <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
-    <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
-      <tr>
-        <th scope="col" class="px-6 py-3">ID</th>
-        <th scope="col" class="px-6 py-3">empresa</th>
-        <th scope="col" class="px-6 py-3">servicio</th>
-        <th scope="col" class="px-6 py-3">vendedor</th>
-        <th scope="col" class="px-6 py-3">precio</th>
-        <th scope="col" class="px-6 py-3">Fecha de asignación</th>
-        <th scope="col" class="px-6 py-3">concluido</th>
-        <th scope="col" class="px-6 py-3">estado</th>
+<div class="p-4">
+  <div class="text-muted-foreground space-x-1 text-xs font-medium">
+    <a class="hover:text-primary">Tickets prioritarios!</a>
+    <span class="text-foreground">{{ tickets.length }}</span>
+  </div>
 
-      </tr>
-    </thead>
-    <tbody>
-      <tr
-        class="border-b border-gray-200 odd:bg-white even:bg-gray-50 dark:border-gray-700 odd:dark:bg-gray-900 even:dark:bg-gray-800">
-        <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
-        {{nft.id}}</th>
-        <td class="px-6 py-4">Silver</td>
-        <td class="px-6 py-4">Laptop</td>
-        <td class="px-6 py-4">$2999</td>
-        <td class="px-6 py-4">Silver</td>
-        <td class="px-6 py-4">Laptop</td>
-        <td class="px-6 py-4">$2999</td>
-        <td class="px-6 py-4">
-          <a class="font-medium text-blue-600 hover:underline dark:text-blue-500">Edit</a>
-        </td>
-      </tr>
-      <tr
-        class="border-b border-gray-200 odd:bg-white even:bg-gray-50 dark:border-gray-700 odd:dark:bg-gray-900 even:dark:bg-gray-800">
-        <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
-        {{nft.id}}</th>
-        <td class="px-6 py-4">Silver</td>
-        <td class="px-6 py-4">Laptop</td>
-        <td class="px-6 py-4">$2999</td>
-        <td class="px-6 py-4">Silver</td>
-        <td class="px-6 py-4">Laptop</td>
-        <td class="px-6 py-4">$2999</td>
-        <td class="px-6 py-4">
-          <a class="font-medium text-blue-600 hover:underline dark:text-blue-500">Edit</a>
-        </td>
-      </tr>
-      <tr
-        class="border-b border-gray-200 odd:bg-white even:bg-gray-50 dark:border-gray-700 odd:dark:bg-gray-900 even:dark:bg-gray-800">
-        <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
-          {{nft.id}}
-        </th>
-        <td class="px-6 py-4">Silver</td>
-        <td class="px-6 py-4">Laptop</td>
-        <td class="px-6 py-4">$2999</td>
-        <td class="px-6 py-4">Silver</td>
-        <td class="px-6 py-4">Laptop</td>
-        <td class="px-6 py-4">$2999</td>
-        <td class="px-6 py-4">
-          <a class="font-medium text-blue-600 hover:underline dark:text-blue-500">Edit</a>
-        </td>
-      </tr>
-      <tr
-        class="border-b border-gray-200 odd:bg-white even:bg-gray-50 dark:border-gray-700 odd:dark:bg-gray-900 even:dark:bg-gray-800">
-        <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
-          {{nft.id}}
-        </th>
-        <td class="px-6 py-4">Silver</td>
-        <td class="px-6 py-4">Laptop</td>
-        <td class="px-6 py-4">$2999</td>
-        <td class="px-6 py-4">Silver</td>
-        <td class="px-6 py-4">Laptop</td>
-        <td class="px-6 py-4">$2999</td>
-        <td class="px-6 py-4">
-          <a class="font-medium text-blue-600 hover:underline dark:text-blue-500">Edit</a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <!-- Tabla -->
+  <div class="overflow-x-auto">
+    <table class="border-muted/20 text-muted-foreground border text-xs">
+      <thead class="p-4">
+        <tr>
+          <th class="py-3 px-4 font-medium">ID</th>
+          <th class="py-3 px-4 font-medium">TÍTULO</th>
+          <th class="py-3 px-4 font-medium">EMPRESA</th>
+          <th class="py-3 px-4 font-medium">ESTADO</th>
+          <th class="py-3 px-4 font-medium">PRIORIDAD</th>
+          <th class="py-3 px-4 font-medium">CATEGORÍA</th>
+          <th class="py-3 px-4 font-medium">FECHA GENERADO</th>
+          <th class="py-3 px-4 font-medium">VENDEDOR</th>
+          <th class="py-3 px-4 font-medium">OBSERVACIONES</th>
+        </tr>
+      </thead>
+      <tbody class="text-gray-600 text-sm font-light">
+        <tr *ngFor="let ticket of tickets" class="border-b">
+          <td class="py-3 px-4">{{ ticket.id }}</td>
+          <td class="py-3 px-4">{{ ticket.titulo }}</td>
+          <td class="py-3 px-4">{{ ticket.empresa }}</td>
+
+          <!-- Estado -->
+          <td class="py-3 px-4">
+            <span class="border rounded px-2 py-1 text-sm w-auto min-w-[120px] max-w-full select-custom"
+            [ngClass]="getStatusClass(ticket.status)">
+              {{ ticket.status }}
+            </span>
+          </td>
+
+          <!-- Prioridad -->
+          <td class="py-3 px-4">
+            <span class="border rounded px-2 py-1 text-sm w-auto min-w-[120px] max-w-full select-custom"
+            [ngClass]="getPrioridadClass(ticket.prioridad)">
+              {{ ticket.prioridad }}
+            </span>
+          </td>
+
+          <!-- Categoría -->
+          <td class="py-3 px-1 text-right">
+            <span class="border rounded px-2 py-1 text-sm w-auto min-w-[120px] max-w-full"
+            [ngClass]="getCategoria(ticket.categoria)">
+              {{ ticket.categoria }}
+            </span>
+          </td>
+
+          <td class="py-3 px-4">{{ ticket.fecha_generado }}</td>
+          <td class="py-3 px-4">{{ ticket.username }}</td>
+          <td class="py-3 px-4">{{ ticket.observaciones }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

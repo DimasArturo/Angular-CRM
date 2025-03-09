@@ -1,69 +1,69 @@
 <div class="p-4">
   <div class="text-muted-foreground space-x-1 text-xs font-medium">
-    <a class="hover:text-primary">Total de Tickets</a>
+    <a class="hover:text-primary" href="/tickets">Total de Tickets</a>
     <span class="text-foreground">{{ tickets.length }}</span>
   </div>
 
   <!-- Barra de filtros -->
   <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
-    <input type="text" [(ngModel)]="searchQuery" (input)="filterByText()" placeholder="Buscar..."
-    class="p-4"/>
-
-    <input type="date" [(ngModel)]="selectedDate" (change)="filterByDate()"
-    class="p-4"/>
+    <input type="text" [(ngModel)]="searchQuery" (input)="filterByText()" placeholder="Buscar..." class="p-4" />
+    <input type="date" [(ngModel)]="selectedDate" (change)="filterByDate()" class="p-4" />
   </div>
 
-  <!-- Tabla -->
+  <!-- Tabla con paginación -->
   <div class="overflow-x-auto">
-    <table class="border-muted/20 text-muted-foreground border text-xs">
+    <table class="border-muted/20 text-muted-foreground border text-xs w-full">
       <thead class="p-4">
         <tr>
-          <th class="py-3 px-4 font-medium">ID</th>
-          <th class="py-3 px-4 font-medium">TÍTULO</th>
-          <th class="py-3 px-4 font-medium">EMPRESA</th>
-          <th class="py-3 px-4 font-medium">ESTADO</th>
-          <th class="py-3 px-4 font-medium">PRIORIDAD</th>
-          <th class="py-3 px-4 font-medium">CATEGORÍA</th>
-          <th class="py-3 px-4 font-medium">FECHA GENERADO</th>
-          <th class="py-3 px-4 font-medium">VENDEDOR</th>
-          <th class="py-3 px-4 font-medium">OBSERVACIONES</th>
+          <th class="py-1 px-4 font-medium">ID</th>
+          <th class="py-1 px-4 font-medium">TÍTULO</th>
+          <th class="py-1 px-4 font-medium">EMPRESA</th>
+          <th class="py-1 px-4 font-medium">ESTADO</th>
+          <th class="py-1 px-4 font-medium">PRIORIDAD</th>
+          <th class="py-1 px-4 font-medium">CATEGORÍA</th>
+          <th class="py-1 px-4 font-medium">FECHA GENERADO</th>
+          <th class="py-1 px-4 font-medium">VENDEDOR</th>
+          <th class="py-1 px-4 font-medium">OBSERVACIONES</th>
         </tr>
       </thead>
       <tbody class="text-gray-600 text-sm font-light">
-        <tr *ngFor="let ticket of filteredTickets" class="border-b">
-          <td class="py-3 px-4">{{ ticket.id }}</td>
-          <td class="py-3 px-4">{{ ticket.titulo }}</td>
-          <td class="py-3 px-4">{{ ticket.empresa }}</td>
+        <tr *ngFor="let ticket of paginatedTickets" class="border-b">
+          <td class="py-1 px-4">{{ ticket.id }}</td>
+          <td class="py-1 px-4">{{ ticket.titulo }}</td>
+          <td class="py-1s px-4">{{ ticket.empresa }}</td>
 
           <!-- Estado -->
-          <td class="py-3 px-4">
-            <select [(ngModel)]="ticket.status"
-            class="border rounded px-2 py-1 text-sm w-auto min-w-[120px] max-w-full select-custom"
-            [ngClass]="getStatusClass(ticket.status)">
-            <option value="Pendiente">Pendiente</option>
-            <option value="En proceso">En proceso</option>
-            <option value="Seguimiento">Seguimiento</option>
-            <option value="Cerrado">Cerrado</option>
-            <option value="Ganado">Ganado</option>
-            <option value="Perdido">Perdido</option>
-            <option value="Desestimado">Desestimado</option>
-          </select>
-
+          <td class="py-1 px-4">
+            <select [(ngModel)]="ticket.status" class="border rounded px-2 py-1 text-sm w-auto min-w-[120px] max-w-full select-custom"
+              [ngClass]="getStatusClass(ticket.status)">
+              <option value="Pendiente" class="bg-yellow-200 text-yellow-800">Pendiente</option>
+              <option value="En proceso" class="bg-green-200 text-green-800">En proceso</option>
+              <option value="Seguimiento" class="bg-red-200 text-red-800">Seguimiento</option>
+              <option value="Cerrado" class="bg-blue-200 text-blue-800">Cerrado</option>
+              <option value="Ganado" class="bg-purple-200 text-purple-800">Ganado</option>
+              <option value="Perdido" class="bg-orange-200 text-orange-800">Perdido</option>
+              <option value="Desestimado" class="bg-gray-200 text-gray-800">Desestimado</option>
+            </select>
           </td>
-          <td class="py-3 px-4">
-              <select [(ngModel)]="ticket.prioridad"
+
+          <!-- Prioridad -->
+          <td class="py-1 px-4">
+            <select [(ngModel)]="ticket.prioridad"
               class="border rounded px-2 py-1 text-sm w-auto min-w-[120px] max-w-full select-custom"
               [ngClass]="getPrioridadClass(ticket.prioridad)">
-                <option value="Alta">Alta</option>
-                <option value="Media">Media</option>
-                <option value="Baja">Baja</option>
-              </select>
-            </td>
+              <option value="Alta">Alta</option>
+              <option value="Media">Media</option>
+              <option value="Baja">Baja</option>
+            </select>
+          </td>
 
           <!-- Categoría -->
-          <td class="py-2 px-1 text-left">
-            <select [(ngModel)]="ticket.categoria" class="border rounded px-2 py-1 text-sm w-auto min-w-[120px] max-w-full">
-              <option value="Seguridad">Seguridad</option>
+          <td class="py-1 px-1 text-right">
+            <select [(ngModel)]="ticket.categoria"
+              class="border rounded px-2 py-1 text-card w-auto min-w-[120px] max-w-full"
+              [ngClass]="getCategoria(ticket.categoria)">
+              <option value="Seguridad y vigilancia">Seguridad y vigilancia</option>
+              <option value="Software">Software</option>
               <option value="Mantenimiento">Mantenimiento</option>
               <option value="Redes">Redes</option>
             </select>
@@ -75,5 +75,18 @@
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <!-- Paginación -->
+  <div class="flex justify-center mt-4 space-x-2">
+    <button (click)="prevPage()" [disabled]="currentPage === 0"
+      class="px-4 py-2 rounded bg-gray-700 text-white hover:bg-gray-600 disabled:opacity-50">
+      Anterior
+    </button>
+    <span class="px-4 py-2 bg-gray-800 text-white rounded">Página {{ currentPage + 1 }} de {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage >= totalPages - 1"
+      class="px-4 py-2 rounded bg-gray-700 text-white hover:bg-gray-600 disabled:opacity-50">
+      Siguiente
+    </button>
   </div>
 </div>

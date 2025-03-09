@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {tablaPrincipalComponent } from '../../components/nft/tabla-principal-component/tabla-principal-component';
+import { tablaPrincipalComponent } from '../../components/nft/tabla-principal-component/tabla-principal-component';
 import { NftHeaderComponent } from '../../components/nft/nft-header/nft-header.component';
 import { Nft } from '../../models/nft';
 import { GraphicComponent } from '../../components/nft/Estadisticas/grafica_circular/graphic-component';
@@ -7,13 +7,8 @@ import { InformecpComponent } from '../../components/nft/Estadisticas/informe_cl
 
 @Component({
   selector: 'app-nft',
-  templateUrl:'./nft.component.html',
-  imports: [
-    NftHeaderComponent,
-    tablaPrincipalComponent,
-    GraphicComponent,
-    InformecpComponent
-],
+  templateUrl: './nft.component.html',
+  imports: [NftHeaderComponent, tablaPrincipalComponent, GraphicComponent, InformecpComponent],
 })
 export class NftComponent implements OnInit {
   nft: Array<Nft>;
@@ -28,7 +23,7 @@ export class NftComponent implements OnInit {
         precio: 234.88,
         Fecha_de_asignacion: '22-02-2021',
         concluido: '24-02-2021',
-        estado: 'Finalizado',//asignado //finalizado
+        estado: 'Finalizado', //asignado //finalizado
       },
       {
         id: 34356772,

@@ -1,12 +1,5 @@
 <ng-container>
-  <td class="text-center">
-    <input
-      [(ngModel)]="user.selected"
-      class="checkbox checkbox-sm"
-      data-datatable-row-check="true"
-      type="checkbox"
-      value="28" />
-  </td>
+
   <td>
     <div class="flex items-center gap-2.5">
       <img
@@ -34,9 +27,5 @@
   </td>
   <td>{{ user.phone }}</td>
   <td class="text-center">
-    <button
-      class="flex h-7 w-7 items-center justify-center rounded-md text-muted-foreground hover:bg-card hover:text-foreground">
-      <svg-icon src="./assets/icons/heroicons/outline/ellipsis-vertical.svg" [svgClass]="'h-4 w-4'"> </svg-icon>
-    </button>
   </td>
 </ng-container>

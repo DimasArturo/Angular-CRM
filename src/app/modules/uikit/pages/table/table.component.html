@@ -1,8 +1,7 @@
 <div class="mb-4 flex justify-between">
   <div class="inline-block">
     <div class="text-muted-foreground space-x-1 text-xs font-medium">
-      <a class="hover:text-primary">Total de vendedores</a>
-      <span class="text-foreground">UNDEFINED</span>
+      <a class="hover:text-primary">Personal de GRUPO SAOM</a>
     </div>
   </div>
   <div class="inline-block space-x-4">
@@ -19,7 +18,7 @@
     <table
       class="text-muted-foreground table w-full table-auto border-collapse border-0 text-left align-middle leading-5">
       <thead class="border-muted/20 text-muted-foreground border text-xs">
-        <tr app-table-header (onCheck)="toggleUsers($event)"></tr>
+        <tr app-table-header ></tr>
       </thead>
       <tbody>
         @for (user of filteredUsers(); track $index) {
