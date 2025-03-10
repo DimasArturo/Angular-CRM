@@ -37,13 +37,13 @@
           <td class="py-1 px-4">
             <select [(ngModel)]="ticket.status" class="border rounded px-2 py-1 text-sm w-auto min-w-[120px] max-w-full select-custom"
               [ngClass]="getStatusClass(ticket.status)">
-              <option value="Pendiente" class="bg-yellow-200 text-yellow-800">Pendiente</option>
-              <option value="En proceso" class="bg-green-200 text-green-800">En proceso</option>
-              <option value="Seguimiento" class="bg-red-200 text-red-800">Seguimiento</option>
-              <option value="Cerrado" class="bg-blue-200 text-blue-800">Cerrado</option>
-              <option value="Ganado" class="bg-purple-200 text-purple-800">Ganado</option>
-              <option value="Perdido" class="bg-orange-200 text-orange-800">Perdido</option>
-              <option value="Desestimado" class="bg-gray-200 text-gray-800">Desestimado</option>
+              <option value="Pendiente" class="bg-pendiente">Pendiente</option>
+              <option value="En proceso" class="bg-en-proceso">En proceso</option>
+              <option value="Seguimiento" class="bg-seguimiento">Seguimiento</option>
+              <option value="Cerrado" class="bg-cerrado">Cerrado</option>
+              <option value="Ganado" class="bg-ganado">Ganado</option>
+              <option value="Perdido" class="bg-perdido">Perdido</option>
+              <option value="Desestimado" class="bg-desestimado">Desestimado</option>
             </select>
           </td>
 
@@ -52,9 +52,9 @@
             <select [(ngModel)]="ticket.prioridad"
               class="border rounded px-2 py-1 text-sm w-auto min-w-[120px] max-w-full select-custom"
               [ngClass]="getPrioridadClass(ticket.prioridad)">
-              <option value="Alta" class="bg-red-200 text-red-800">Alta</option>
-              <option value="Media" class="bg-yellow-200 text-yellow-800">Media</option>
-              <option value="Baja" class="bg-green-200 text-green-800">Baja</option>
+              <option value="Alta" class="bg-alta">Alta</option>
+              <option value="Media" class="bg-media">Media</option>
+              <option value="Baja" class="bg-baja">Baja</option>
             </select>
           </td>
 
