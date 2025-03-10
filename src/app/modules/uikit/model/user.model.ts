@@ -9,4 +9,5 @@ export interface User {
   occupation: string;
   status: number;
   created_at: string;
+  tickets: number;
 }

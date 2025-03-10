@@ -1,0 +1,28 @@
+<div class="w-full max-w-md rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-8">
+  <div class="mb-4 flex items-center justify-between">
+    <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">
+      Ranking de Usuarios - Tickets Resueltos
+    </h5>
+    <a href="/ranking/tickets" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
+      Ver más...
+    </a>
+  </div>
+  <div class="flow-root">
+    <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+      <li *ngFor="let user of users; let i = index" class="flex items-center py-3 sm:py-4">
+        <span class="mr-4 text-lg font-bold text-gray-900 dark:text-white">{{ getMedal(i) }}</span>
+        <div class="shrink-0">
+          <img
+            alt="user avatar"
+            class="h-9 w-9 rounded-full"
+            src="https://ui-avatars.com/api/?name={{ user.name }}&background=random" />
+        </div>
+        <div class="ms-4 min-w-0 flex-1">
+          <p class="truncate text-sm font-medium text-gray-900 dark:text-white">{{ user.name }}</p>
+          <p class="truncate text-sm text-gray-500 dark:text-gray-400">{{ user.email }}</p>
+        </div>
+        <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">{{ user.tickets }} tickets</div>
+      </li>
+    </ul>
+  </div>
+</div>

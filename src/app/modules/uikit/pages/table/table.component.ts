@@ -30,7 +30,7 @@ export class TableComponent implements OnInit {
   users = signal<User[]>(userData);
   paginatedUsers$ = this.userService.paginatedUsers$;
 
-  constructor(private filterService: TableFilterService, private userService: UserService) {}
+  constructor(private filterService: TableFilterService, public userService: UserService) {}
 
   filteredUsers = computed(() => {
     const search = this.filterService.searchField().toLowerCase();

@@ -10,7 +10,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 @Component({
   selector: 'app-tickets-table',
   templateUrl: './tickets-table.component.html',
-  imports: [CommonModule, FormsModule, MatFormFieldModule, MatSelectModule], // Asegúrate de importar CommonModule
+  imports: [CommonModule, FormsModule, MatFormFieldModule, MatSelectModule],
   styleUrls: ['./tickets-table.component.css'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

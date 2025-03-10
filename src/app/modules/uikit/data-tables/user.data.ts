@@ -12,6 +12,7 @@ export const userData: User[] = [
     occupation: 'Software Engineer',
     status: 1,
     created_at: '2024-10-12T12:34:56Z',
+    tickets: Math.floor(Math.random() * 100) + 1
   },
   {
     id: 2,
@@ -24,6 +25,7 @@ export const userData: User[] = [
     occupation: 'Graphic Designer',
     status: 1,
     created_at: '2024-10-14T12:34:56Z',
+    tickets: Math.floor(Math.random() * 100) + 1
   },
   {
     id: 3,
@@ -36,6 +38,7 @@ export const userData: User[] = [
     occupation: 'Data Scientist',
     status: 2,
     created_at: '2024-10-16T12:34:56Z',
+    tickets: Math.floor(Math.random() * 100) + 1
   },
   {
     id: 4,
@@ -48,6 +51,7 @@ export const userData: User[] = [
     occupation: 'Marketing Specialist',
     status: 2,
     created_at: '2024-10-18T12:34:56Z',
+    tickets: Math.floor(Math.random() * 100) + 1
   },
   {
     id: 5,
@@ -60,6 +64,7 @@ export const userData: User[] = [
     occupation: 'Product Manager',
     status: 1,
     created_at: '2024-10-20T12:34:56Z',
+    tickets: Math.floor(Math.random() * 100) + 1
   },
   {
     id: 6,
@@ -72,6 +77,7 @@ export const userData: User[] = [
     occupation: 'UI/UX Designer',
     status: 1,
     created_at: '2024-10-22T12:34:56Z',
+    tickets: Math.floor(Math.random() * 100) + 1
   },
   {
     id: 7,
@@ -84,6 +90,7 @@ export const userData: User[] = [
     occupation: 'Mobile Developer',
     status: 1,
     created_at: '2024-10-26T12:34:56Z',
+    tickets: Math.floor(Math.random() * 100) + 1
   },
   {
     id: 8,
@@ -96,8 +103,8 @@ export const userData: User[] = [
     occupation: 'DevOps Engineer',
     status: 3,
     created_at: '2024-10-28T12:34:56Z',
+    tickets: Math.floor(Math.random() * 100) + 1
   },
-  // NUEVOS USUARIOS
   {
     id: 9,
     name: 'Liam Anderson',
@@ -109,6 +116,7 @@ export const userData: User[] = [
     occupation: 'Backend Engineer',
     status: 1,
     created_at: '2024-11-01T09:45:12Z',
+    tickets: Math.floor(Math.random() * 100) + 1
   },
   {
     id: 10,
@@ -121,6 +129,7 @@ export const userData: User[] = [
     occupation: 'Illustrator',
     status: 1,
     created_at: '2024-11-02T14:20:30Z',
+    tickets: Math.floor(Math.random() * 100) + 1
   },
   {
     id: 11,
@@ -133,6 +142,7 @@ export const userData: User[] = [
     occupation: 'Cybersecurity Analyst',
     status: 2,
     created_at: '2024-11-03T11:10:15Z',
+    tickets: Math.floor(Math.random() * 100) + 1
   },
   {
     id: 12,
@@ -145,6 +155,7 @@ export const userData: User[] = [
     occupation: 'SEO Specialist',
     status: 2,
     created_at: '2024-11-04T16:50:42Z',
+    tickets: Math.floor(Math.random() * 100) + 1
   },
   {
     id: 13,
@@ -157,6 +168,7 @@ export const userData: User[] = [
     occupation: 'Operations Manager',
     status: 1,
     created_at: '2024-11-05T08:30:55Z',
+    tickets: Math.floor(Math.random() * 100) + 1
   },
   {
     id: 14,
@@ -169,6 +181,7 @@ export const userData: User[] = [
     occupation: 'Account Manager',
     status: 1,
     created_at: '2024-11-06T12:15:29Z',
+    tickets: Math.floor(Math.random() * 100) + 1
   },
   {
     id: 15,
@@ -181,6 +194,7 @@ export const userData: User[] = [
     occupation: 'Technical Support',
     status: 3,
     created_at: '2024-11-07T10:55:10Z',
+    tickets: Math.floor(Math.random() * 100) + 1
   },
   {
     id: 16,
@@ -193,6 +207,7 @@ export const userData: User[] = [
     occupation: 'Sales Executive',
     status: 2,
     created_at: '2024-11-08T17:40:25Z',
+    tickets: Math.floor(Math.random() * 100) + 1
   },
   {
     id: 17,
@@ -205,6 +220,7 @@ export const userData: User[] = [
     occupation: 'Financial Analyst',
     status: 1,
     created_at: '2024-11-09T14:05:37Z',
+    tickets: Math.floor(Math.random() * 100) + 1
   },
   {
     id: 18,
@@ -217,5 +233,6 @@ export const userData: User[] = [
     occupation: 'HR Manager',
     status: 1,
     created_at: '2024-11-10T09:25:50Z',
-  },
+    tickets: Math.floor(Math.random() * 100) + 1
+  }
 ];

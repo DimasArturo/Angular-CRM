@@ -3,12 +3,12 @@ import { tablaPrincipalComponent } from '../../components/nft/tabla-principal-co
 import { NftHeaderComponent } from '../../components/nft/nft-header/nft-header.component';
 import { Nft } from '../../models/nft';
 import { GraphicComponent } from '../../components/nft/Estadisticas/grafica_circular/graphic-component';
-import { InformecpComponent } from '../../components/nft/Estadisticas/informe_clientes_potenciales/informecp-component';
+import { UsuarioAcComponent } from '../../components/nft/Estadisticas/usuarios_activos/usuario_ac-component';
 
 @Component({
   selector: 'app-nft',
   templateUrl: './nft.component.html',
-  imports: [NftHeaderComponent, tablaPrincipalComponent, GraphicComponent, InformecpComponent],
+  imports: [NftHeaderComponent, tablaPrincipalComponent, GraphicComponent, UsuarioAcComponent ],
 })
 export class NftComponent implements OnInit {
   nft: Array<Nft>;

@@ -47,7 +47,7 @@ export class GraphicComponent implements OnInit {
           bottom: -20,
         },
       },
-      labels: ["Done", "In progress", "To do"],
+      labels: ["Exitosos", "Fallidos", "Por hacer"],
       legend: {
         show: true,
         position: "bottom",
