@@ -10,9 +10,11 @@ import { User } from '../../model/user.model';
 import { TableFilterService } from '../../services/table-filter.service';
 import { UserService } from '../../services/paginado.service';
 import { CommonModule } from '@angular/common';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-table',
+  standalone: true,
   imports: [
     AngularSvgIconModule,
     FormsModule,
@@ -23,28 +25,26 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ],
   templateUrl: './table.component.html',
-  styleUrl: './table.component.css',
+  styleUrls: ['./table.component.css'],
   providers: [UserService, TableFilterService],
 })
 export class TableComponent implements OnInit {
-  users = signal<User[]>(userData);
-  paginatedUsers$ = this.userService.paginatedUsers$;
-
+  users = signal<User[]>(userData); // Lista de usuarios
   constructor(private filterService: TableFilterService, public userService: UserService) {}
 
+  // Computed para filtrar y ordenar usuarios
   filteredUsers = computed(() => {
     const search = this.filterService.searchField().toLowerCase();
     const order = this.filterService.orderField();
 
     return this.users()
-      .filter(
-        (user: { name: string; username: string; email: string; phone: string | string[]; }) =>
-          user.name.toLowerCase().includes(search) ||
-          user.username.toLowerCase().includes(search) ||
-          user.email.toLowerCase().includes(search) ||
-          user.phone.includes(search),
+      .filter((user: User) =>
+        user.name.toLowerCase().includes(search) ||
+        user.username.toLowerCase().includes(search) ||
+        user.email.toLowerCase().includes(search) ||
+        user.phone.includes(search)
       )
-      .sort((a: { created_at: string | number | Date; }, b: { created_at: string | number | Date; }) => {
+      .sort((a: User, b: User) => {
         const defaultNewest = !order || order === '1';
         if (defaultNewest) {
           return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
@@ -55,5 +55,8 @@ export class TableComponent implements OnInit {
       });
   });
 
-  ngOnInit() {}
+  ngOnInit(): void {
+    // Inicialización si es necesario
+  }
+
 }

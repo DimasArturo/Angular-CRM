@@ -1,11 +1,1 @@
-<div class="flex justify-center mt-4 space-x-2">
-  <button (click)="prevPage()" [disabled]="(currentPage$ | async)! === 0"
-    class="px-4 py-2 rounded bg-gray-700 text-white hover:bg-gray-600 disabled:opacity-50">
-    Anterior
-  </button>
-  <span class="px-4 py-2 bg-gray-800 text-white rounded">Página {{ (currentPage$ | async)! + 1 }} de {{ (totalPages$ | async)! }}</span>
-  <button (click)="nextPage()" [disabled]="(currentPage$ | async)! >= (totalPages$ | async)! - 1"
-    class="px-4 py-2 rounded bg-gray-700 text-white hover:bg-gray-600 disabled:opacity-50">
-    Siguiente
-  </button>
-</div>
+

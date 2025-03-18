@@ -24,18 +24,18 @@
           <th class="py-1 px-4 font-medium">CATEGORÍA</th>
           <th class="py-1 px-4 font-medium">FECHA GENERADO</th>
           <th class="py-1 px-4 font-medium">VENDEDOR</th>
-          <th class="py-1 px-4 font-medium">OBSERVACIONES</th>
+          <th class="py-1 px-4 font-medium">ACCIÓN</th>
         </tr>
       </thead>
       <tbody class="text-gray-600 text-sm font-light">
         <tr *ngFor="let ticket of paginatedTickets" class="border-b">
-          <td class="py-1 px-4">{{ ticket.id }}</td>
-          <td class="py-1 px-4">{{ ticket.titulo }}</td>
-          <td class="py-1s px-4">{{ ticket.empresa }}</td>
+          <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary text-center align-middle">{{ ticket.id }}</td>
+          <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary text-center align-middle">{{ ticket.titulo }}</td>
+          <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary px-4 text-center align-middle">{{ ticket.empresa }}</td>
 
           <!-- Estado -->
           <td class="py-1 px-4">
-            <select [(ngModel)]="ticket.status" class="border rounded px-2 py-1 text-sm w-auto min-w-[120px] max-w-full select-custom"
+            <select [(ngModel)]="ticket.status" class="border rounded px-2 py-1 text-sm w-auto min-w-[90px] max-w-full select-custom"
               [ngClass]="getStatusClass(ticket.status)">
               <option value="Pendiente" class="bg-pendiente">Pendiente</option>
               <option value="En proceso" class="bg-en-proceso">En proceso</option>
@@ -50,7 +50,7 @@
           <!-- Prioridad -->
           <td class="py-1 px-4">
             <select [(ngModel)]="ticket.prioridad"
-              class="border rounded px-2 py-1 text-sm w-auto min-w-[120px] max-w-full select-custom"
+              class="border rounded px-2 py-1 text-sm w-auto min-w-[70px] max-w-full select-custom"
               [ngClass]="getPrioridadClass(ticket.prioridad)">
               <option value="Alta" class="bg-alta">Alta</option>
               <option value="Media" class="bg-media">Media</option>
@@ -61,7 +61,7 @@
           <!-- Categoría -->
           <td class="py-1 px-1 text-right">
             <select [(ngModel)]="ticket.categoria"
-              class="border rounded px-2 py-1 text-card w-auto min-w-[120px] max-w-full"
+              class="border rounded px-2 py-1 text-card w-auto min-w-[150px] max-w-full"
               [ngClass]="getCategoria(ticket.categoria)">
               <option value="Seguridad y vigilancia" class="bg-seguridad">Seguridad y vigilancia</option>
               <option value="Software" class="bg-software">Software</option>
@@ -70,9 +70,13 @@
             </select>
           </td>
 
-          <td class="py-3 px-4">{{ ticket.fecha_generado }}</td>
-          <td class="py-3 px-4">{{ ticket.username }}</td>
-          <td class="py-3 px-4">{{ ticket.observaciones }}</td>
+          <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary text-center align-middle">{{ ticket.fecha_generado }}</td>
+          <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary text-center align-middle">{{ ticket.username }}</td>
+          <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary">
+            <button class="bg-primary text-primary-foreground flex-none rounded-md px-2 py-1 text-xs font-semibold">
+              Detalles
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>

@@ -29,11 +29,11 @@ export class tablaPrincipalComponent implements OnInit {
         fecha_asignado: "",
         fecha_atendido: "",
         fecha_resuelto: "",
-        username: "Javier Morales",
+        username: "Sin Asignar",
         id_user: 285,
         prioridad: "Alta",
         categoria: "Seguridad y vigilancia",
-        observaciones: "Esperando autorización del departamento de TI."
+        observaciones: ""
       },
       {
         id: 70211,
@@ -45,11 +45,11 @@ export class tablaPrincipalComponent implements OnInit {
         fecha_asignado: "",
         fecha_atendido: "",
         fecha_resuelto: "",
-        username: "Luis Fernández",
+        username: "Sin Asignar",
         id_user: 286,
         prioridad: "Alta",
         categoria: "Redes",
-        observaciones: "Pendiente de revisión de configuración de acceso."
+        observaciones: ""
       }
     ];
   }

@@ -1,0 +1,57 @@
+<div class="text-muted-foreground space-x-1 text-xs font-medium">
+  <a class="hover:text-primary" >Cuentas</a>
+  <span class="text-foreground">{{ cuentas.length }}</span>
+</div>
+
+<!-- Barra de filtros -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+  <input type="text" [(ngModel)]="searchQuery" (input)="filterByText()" placeholder="Buscar..." class="p-4" />
+</div>
+
+<!-- Tabla con paginación -->
+ <div class="border-muted/20 bg-background flex min-w-full flex-col rounded-xl border p-2">
+<div>
+<div class="overflow-x-auto">
+  <table class="text-muted-foreground table w-full table-auto border-collapse border-0 text-left align-middle leading-5">
+    <thead class="border-muted/20 text-muted-foreground border text-xs">
+      <tr>
+        <th class="py-1 px-4 font-medium">EMPRESA</th>
+        <th class="py-1 px-4 font-medium">SUCURSAL</th>
+        <th class="py-1 px-4 font-medium">RFC</th>
+        <th class="py-1 px-4 font-medium">TELEFONO</th>
+        <th class="py-1 px-4 font-medium">EMAIL</th>
+        <th class="py-1 px-4 font-medium">DIRECCIÓN</th>
+      </tr>
+    </thead>
+    <tbody class="text-gray-600 text-sm font-light">
+      <tr *ngFor="let cuentas of paginatedCuentas" class="border-b">
+        <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary text-center align-middle">{{ cuentas.empresa }}</td>
+        <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary text-center align-middle">{{ cuentas.sucursal }}</td>
+        <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary px-4 text-center align-middle">{{ cuentas.rfc }}</td>
+        <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary text-center align-middle">{{ cuentas.telefono }}</td>
+        <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary text-center align-middle">{{ cuentas.email }}</td>
+        <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary text-center align-middle">{{ cuentas.direccion }}</td>
+        <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary">
+          <button class="bg-primary text-primary-foreground flex-none rounded-md px-2 py-1 text-xs font-semibold">
+            Detalles
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+<!-- Paginación -->
+<div class="flex justify-center mt-4 space-x-2">
+  <button (click)="prevPage()" [disabled]="currentPage === 0"
+    class="px-4 py-2 rounded bg-gray-700 text-white hover:bg-gray-600 disabled:opacity-50">
+    Anterior
+  </button>
+  <span class="px-4 py-2 bg-gray-800 text-white rounded">Página {{ currentPage + 1 }} de {{ totalPages }}</span>
+  <button (click)="nextPage()" [disabled]="currentPage >= totalPages - 1"
+    class="px-4 py-2 rounded bg-gray-700 text-white hover:bg-gray-600 disabled:opacity-50">
+    Siguiente
+  </button>
+</div>
+</div>

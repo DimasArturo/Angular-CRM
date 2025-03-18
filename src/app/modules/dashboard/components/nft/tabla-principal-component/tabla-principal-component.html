@@ -18,18 +18,17 @@
           <th class="py-3 px-4 font-medium">CATEGORÍA</th>
           <th class="py-3 px-4 font-medium">FECHA GENERADO</th>
           <th class="py-3 px-4 font-medium">VENDEDOR</th>
-          <th class="py-3 px-4 font-medium">OBSERVACIONES</th>
         </tr>
       </thead>
       <tbody class="text-gray-600 text-sm font-light">
         <tr *ngFor="let ticket of tickets" class="border-b">
-          <td class="py-3 px-4">{{ ticket.id }}</td>
-          <td class="py-3 px-4">{{ ticket.titulo }}</td>
-          <td class="py-3 px-4">{{ ticket.empresa }}</td>
+          <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary text-center align-middle">{{ ticket.id }}</td>
+          <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary text-center align-middle">{{ ticket.titulo }}</td>
+          <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary text-center align-middle">{{ ticket.empresa }}</td>
 
           <!-- Estado -->
           <td class="py-3 px-4">
-            <span class="border rounded px-2 py-1 text-sm w-auto min-w-[120px] max-w-full select-custom"
+            <span class="border rounded px-2 py-1 text-sm w-auto min-w-[120px] max-w-full select-custom text-center align-middle"
             [ngClass]="getStatusClass(ticket.status)">
               {{ ticket.status }}
             </span>
@@ -44,16 +43,15 @@
           </td>
 
           <!-- Categoría -->
-          <td class="py-3 px-1 text-right">
+          <td class="py-3 px-1 text-left">
             <span class="border rounded px-2 py-1 text-sm w-auto min-w-[120px] max-w-full"
             [ngClass]="getCategoria(ticket.categoria)">
               {{ ticket.categoria }}
             </span>
           </td>
 
-          <td class="py-3 px-4">{{ ticket.fecha_generado }}</td>
-          <td class="py-3 px-4">{{ ticket.username }}</td>
-          <td class="py-3 px-4">{{ ticket.observaciones }}</td>
+          <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary ">{{ ticket.fecha_generado }}</td>
+          <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary">{{ ticket.username }}</td>
         </tr>
       </tbody>
     </table>
