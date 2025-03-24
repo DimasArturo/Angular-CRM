@@ -6,11 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import {  RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-tickets-table',
   templateUrl: './tickets-table.component.html',
-  imports: [CommonModule, FormsModule, MatFormFieldModule, MatSelectModule],
+  imports: [CommonModule, FormsModule, MatFormFieldModule, MatSelectModule, RouterModule ],
   styleUrls: ['./tickets-table.component.css'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
@@ -29,6 +30,7 @@ export class TicketsTableComponent {
   constructor() {
     this.loadTickets();
   }
+
 
   // Carga los tickets y configura la paginación
   loadTickets(): void {

@@ -73,9 +73,9 @@
           <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary text-center align-middle">{{ ticket.fecha_generado }}</td>
           <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary text-center align-middle">{{ ticket.username }}</td>
           <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary">
-            <button class="bg-primary text-primary-foreground flex-none rounded-md px-2 py-1 text-xs font-semibold">
+            <a [routerLink]="['/components/detalles-ticket']" class="bg-primary text-primary-foreground flex-none rounded-md px-2 py-1 text-xs font-semibold">
               Detalles
-            </button>
+            </a>
           </td>
         </tr>
       </tbody>

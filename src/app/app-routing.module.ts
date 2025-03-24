@@ -12,6 +12,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule),
   },
   {
+    path: 'profile',
+    loadChildren: () => import('./modules/vista-perfil/profile.module').then(m => m.ProfileModule)
+  },
+  {
     path: '',
     loadChildren: () => import('./modules/layout/layout.module').then(m => m.LayoutModule),
   },
@@ -19,7 +23,7 @@ const routes: Routes = [
     path: 'errors',
     loadChildren: () => import('./modules/error/error.module').then(m => m.ErrorModule),
   },
-  { path: '**', redirectTo: 'errors/404' }
+  { path: '**', redirectTo: 'errors/404' },
 ];
 
 @NgModule({
