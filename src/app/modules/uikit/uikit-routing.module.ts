@@ -10,6 +10,7 @@ import { DetailsTicketComponent } from './pages/detalles-ticket/detalles-ticket.
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -22,14 +23,14 @@ const routes: Routes = [
       { path: 'clientes-table', component: ClientesTableComponent },
       { path: 'cuentas-table', component: CuentasTableComponent },
       { path: 'clientes-potenciales', component: ClientesPotencialesComponent },
-      { path: 'detalles-ticket', component: DetailsTicketComponent },
+      { path: 'detalles-ticket/:id_ticket', component: DetailsTicketComponent },
       { path: '**', redirectTo: 'errors/404' }
     ]
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes), CommonModule, MatSelectModule, MatFormFieldModule, RouterModule],
-  exports: [RouterModule],
+  imports: [RouterModule.forChild(routes), CommonModule, MatSelectModule, MatFormFieldModule, RouterModule, HttpClientModule],
+  exports: [RouterModule, CommonModule, MatSelectModule, MatFormFieldModule, HttpClientModule],
 })
 export class UikitRoutingModule {}

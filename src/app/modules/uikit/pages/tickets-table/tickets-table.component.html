@@ -17,66 +17,43 @@
       <thead class="border-muted/20 text-muted-foreground border text-xs">
         <tr>
           <th class="py-1 px-4 font-medium">ID</th>
-          <th class="py-1 px-4 font-medium">TÍTULO</th>
-          <th class="py-1 px-4 font-medium">EMPRESA</th>
+          <th class="py-1 px-4 font-medium">CLIENTE</th>
+          <th class="py-1 px-4 font-medium">CELULAR</th>
+          <th class="py-1 px-4 font-medium">DEPARTAMENTO</th>
           <th class="py-1 px-4 font-medium">ESTADO</th>
-          <th class="py-1 px-4 font-medium">PRIORIDAD</th>
-          <th class="py-1 px-4 font-medium">CATEGORÍA</th>
-          <th class="py-1 px-4 font-medium">FECHA GENERADO</th>
-          <th class="py-1 px-4 font-medium">VENDEDOR</th>
+          <th class="py-1 px-4 font-medium">FECHA CREACIÓN</th>
+          <th class="py-1 px-4 font-medium">FECHA ACTUALIZACIÓN</th>
           <th class="py-1 px-4 font-medium">ACCIÓN</th>
         </tr>
       </thead>
       <tbody class="text-gray-600 text-sm font-light">
         <tr *ngFor="let ticket of paginatedTickets" class="border-b">
-          <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary text-center align-middle">{{ ticket.id }}</td>
-          <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary text-center align-middle">{{ ticket.titulo }}</td>
-          <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary px-4 text-center align-middle">{{ ticket.empresa }}</td>
+          <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary text-center align-middle">{{ ticket.id_ticket }}</td>
+          <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary text-center align-middle">{{ ticket.nameCliente }}</td>
+          <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary text-center align-middle">{{ ticket.celular }}</td>
+          <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary text-center align-middle">{{ ticket.departamento }}</td>
 
-          <!-- Estado -->
-          <td class="py-1 px-4">
-            <select [(ngModel)]="ticket.status" class="border rounded px-2 py-1 text-sm w-auto min-w-[90px] max-w-full select-custom"
-              [ngClass]="getStatusClass(ticket.status)">
-              <option value="Pendiente" class="bg-pendiente">Pendiente</option>
-              <option value="En proceso" class="bg-en-proceso">En proceso</option>
-              <option value="Seguimiento" class="bg-seguimiento">Seguimiento</option>
-              <option value="Cerrado" class="bg-cerrado">Cerrado</option>
-              <option value="Ganado" class="bg-ganado">Ganado</option>
-              <option value="Perdido" class="bg-perdido">Perdido</option>
-              <option value="Desestimado" class="bg-desestimado">Desestimado</option>
-            </select>
-          </td>
+  <!-- Estado -->
+  <td class="py-1 px-1 text-right">
+    <select
+      [(ngModel)]="ticket.name_estado_ticket"
+      class="border rounded px-2 py-1 text-card w-auto min-w-[150px] max-w-full"
+      [ngClass]="getCategoria(ticket.departamento)"
+      (change)="confirmEstadoChange(ticket)"
+    >
+      <option *ngFor="let estado of estados" [value]="estado" [selected]="estado === ticket.name_estado_ticket">
+        {{ estado }}
+      </option>
+    </select>
+  </td>
 
-          <!-- Prioridad -->
-          <td class="py-1 px-4">
-            <select [(ngModel)]="ticket.prioridad"
-              class="border rounded px-2 py-1 text-sm w-auto min-w-[70px] max-w-full select-custom"
-              [ngClass]="getPrioridadClass(ticket.prioridad)">
-              <option value="Alta" class="bg-alta">Alta</option>
-              <option value="Media" class="bg-media">Media</option>
-              <option value="Baja" class="bg-baja">Baja</option>
-            </select>
-          </td>
-
-          <!-- Categoría -->
-          <td class="py-1 px-1 text-right">
-            <select [(ngModel)]="ticket.categoria"
-              class="border rounded px-2 py-1 text-card w-auto min-w-[150px] max-w-full"
-              [ngClass]="getCategoria(ticket.categoria)">
-              <option value="Seguridad y vigilancia" class="bg-seguridad">Seguridad y vigilancia</option>
-              <option value="Software" class="bg-software">Software</option>
-              <option value="Mantenimiento" class="bg-mantenimiento">Mantenimiento</option>
-              <option value="Redes" class="bg-redes">Redes</option>
-            </select>
-          </td>
-
-          <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary text-center align-middle">{{ ticket.fecha_generado }}</td>
-          <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary text-center align-middle">{{ ticket.username }}</td>
-          <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary">
-            <a [routerLink]="['/components/detalles-ticket']" class="bg-primary text-primary-foreground flex-none rounded-md px-2 py-1 text-xs font-semibold">
-              Detalles
-            </a>
-          </td>
+  <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary text-center align-middle">{{ ticket.fecha_creacion }}</td>
+  <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary text-center align-middle">{{ ticket.fecha_actualizacion }}</td>
+  <td class="text-xs font-medium text-muted-foreground/70 hover:text-primary">
+    <a [routerLink]="['/components/detalles-ticket', ticket.id_ticket]" class="bg-primary text-primary-foreground flex-none rounded-md px-2 py-1 text-xs font-semibold">
+      Detalles
+    </a>
+  </td>
         </tr>
       </tbody>
     </table>

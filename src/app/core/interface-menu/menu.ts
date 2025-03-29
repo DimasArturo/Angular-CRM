@@ -28,7 +28,6 @@ export class Menu {
             ),
           label: 'Tickets',
           route: '/components/tickets-table',
-
         },
         {
           icon: 'assets/icons/heroicons/outline/cube.svg',

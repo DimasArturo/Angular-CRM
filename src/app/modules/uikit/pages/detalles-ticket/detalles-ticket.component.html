@@ -1,141 +1,88 @@
-<div class="flex flex-col md:flex-row p-4 space-y-4 md:space-y-0 md:space-x-4">
-  <!-- Detalles del Ticket -->
-  <div class="w-full md:w-2/3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xs p-4">
-    <div class="flex justify-between items-center mb-4">
-      <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Detalles del Ticket</h2>
-      <button class="bg-green-500 text-white px-4 py-2 rounded-md">Con Seguimiento</button>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div>
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Nombre</h3>
-        <p class="text-gray-500 dark:text-gray-400">{{ ticket?.titulo }}</p>
+<div class="flex flex-col space-y-4">
+  <!-- Sección superior: Detalles del Ticket y Comentarios -->
+  <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+    <!-- Detalles del Ticket -->
+    <div class="w-full md:w-2/3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xs p-4">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Detalles del Ticket</h2>
       </div>
-      <div>
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Usuario Asignado</h3>
-        <p class="text-gray-500 dark:text-gray-400">{{ ticket?.username }}</p>
-      </div>
-      <div>
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Estatus</h3>
-        <p class="text-gray-500 dark:text-gray-400">{{ ticket?.status }}</p>
-      </div>
-      <div>
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Prioridad</h3>
-        <p class="text-gray-500 dark:text-gray-400">{{ ticket?.prioridad }}</p>
-      </div>
-      <div>
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Fecha de Comienzo</h3>
-        <p class="text-gray-500 dark:text-gray-400">{{ ticket?.fecha_asignado }}</p>
-      </div>
-      <div>
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Fecha de Vencimiento</h3>
-        <p class="text-gray-500 dark:text-gray-400">{{ ticket?.fecha_atendido }}</p>
-      </div>
-      <div>
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Descripción</h3>
-        <p class="text-gray-500 dark:text-gray-400">{{ ticket?.descripcion || '(vacío)' }}</p>
-      </div>
-      <div>
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Adjuntos</h3>
-        <p class="text-gray-500 dark:text-gray-400">{{ ticket?.observaciones }}</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Nombre</h3>
+          <p class="text-gray-500 dark:text-gray-400">{{ ticket?.nameCliente || '(Sin nombre)' }}</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Estatus</h3>
+          <p class="text-gray-500 dark:text-gray-400">{{ ticket?.name_estado_ticket }}</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Correo</h3>
+          <p class="text-gray-500 dark:text-gray-400">{{ ticket?.correo || '(Sin descripción)' }}</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Fecha de Creación</h3>
+          <p class="text-gray-500 dark:text-gray-400">{{ ticket?.fecha_creacion || '(Sin fecha)' }}</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Fecha de Actualización</h3>
+          <p class="text-gray-500 dark:text-gray-400">{{ ticket?.fecha_actualizacion || '(Sin fecha)' }}</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Celular</h3>
+          <p class="text-gray-500 dark:text-gray-400">{{ ticket?.celular }}</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Departamento</h3>
+          <p class="text-gray-500 dark:text-gray-400">{{ ticket?.departamento || '(Sin adjuntos)' }}</p>
+        </div>
       </div>
     </div>
 
+    <!-- Comentarios del Ticket -->
+    <div class="w-full md:w-1/3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xs p-4">
+      <div class="flex items-center mb-4">
+        <img class="h-10 w-10 rounded-md mr-3" src="assets/avatars/av-1.png" alt="Avatar" />
+        <h2 class="text-lg font-bold text-gray-900 dark:text-white">Comentarios al ticket</h2>
+      </div>
+        <form >
+            <label for="comment" class="sr-only">Escribe un comentario</label>
+            <textarea id="comment" rows="1"
+              class="w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800 resize-none overflow-hidden"
+              placeholder="Escribe un comentario al ticket" required></textarea>
+          <div class="flex justify-end mt-2">
+            <button type="submit"
+            class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-primary rounded-lg focus:ring-4 focus:ring-primary/50 hover:bg-primary-dark">
+              Publicar comentario
+            </button>
+          </div>
+        </form>
+    </div>
   </div>
 
-  <!-- Chat de WhatsApp -->
-  <div class="w-full md:w-1/3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xs p-4 flex flex-col">
+  <!-- Sección inferior: Chat -->
+  <div class="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xs p-6 flex flex-col">
     <div class="flex justify-between items-center mb-4">
       <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Chat</h2>
     </div>
-    <div class="flex-1 overflow-y-auto mb-4">
+    <div class="flex-1 overflow-y-auto mb-4 h-64">
       <!-- Mensajes del Chat -->
       <div class="space-y-4">
-        <div class="flex items-start">
-          <img class="w-10 h-10 rounded-full" src="https://ui-avatars.com/api/?name=Jack+Adams&background=random" alt="Jack Adams">
+        <div *ngFor="let message of chat" class="flex items-start">
+          <img class="w-10 h-10 rounded-full" [src]="message.avatar || 'assets/avatars/av-1.png'" alt="Avatar" />
           <div class="ml-3">
             <div class="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg">
-              <p class="text-gray-900 dark:text-white">Hola, ¿cómo estás?</p>
+              <p class="text-gray-900 dark:text-white">{{ message.text }}</p>
             </div>
-            <span class="text-xs text-gray-500 dark:text-gray-400">18:00</span>
+            <span class="text-xs text-gray-500 dark:text-gray-400">{{ message.time }}</span>
           </div>
         </div>
-        <div class="flex items-start justify-end">
-          <div class="mr-3">
-            <div class="bg-blue-500 text-white p-3 rounded-lg">
-              <p>¡Hola! Estoy bien, gracias.</p>
-            </div>
-            <span class="text-xs text-gray-500 dark:text-gray-400">18:05</span>
-          </div>
-          <img class="w-10 h-10 rounded-full" src="https://ui-avatars.com/api/?name=Usuario&background=random" alt="Usuario">
-        </div>
-        <!-- Más mensajes aquí -->
       </div>
     </div>
     <div class="flex items-center">
       <input type="text" class="flex-1 border border-gray-300 dark:border-gray-600 rounded-lg p-2 dark:bg-gray-700 dark:text-white" placeholder="Escribe tu mensaje...">
-      <button class="ml-2 bg-blue-500 text-white px-4 py-2 rounded-lg">Enviar</button>
+      <button class="ml-2 bg-primary text-white px-4 py-2 rounded-lg focus:ring-4 focus:ring-primary/50 hover:bg-primary-dark">
+        Enviar
+      </button>
     </div>
   </div>
 </div>
-
-<div>
-  <section class="bg-white dark:bg-gray-900 py-8 lg:py-16 antialiased">
-    <div class="max-w-2xl mx-auto px-4">
-        <div class="flex justify-between items-center mb-6">
-          <h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Comentarios al ticket</h2>
-      </div>
-      <form class="mb-6">
-          <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-              <label for="comment" class="sr-only"></label>
-              <textarea id="comment" rows="6"
-                  class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
-                  placeholder="Escribe un comentario al ticket" required></textarea>
-          </div>
-          <button type="submit"
-          class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-600">
-          Publicar comentario
-      </button>
-
-      </form>
-      <article class="p-6 text-base bg-white rounded-lg dark:bg-gray-900">
-          <footer class="flex justify-between items-center mb-2">
-              <div class="flex items-center">
-                <img class="mr-2 w-6 h-6 rounded-full" src="/assets/avatars/av-2.png"/>
-                  <p>Andy</p>
-                  <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-02-08"
-                          title="February 8th, 2022">Feb. 8, 2022</time></p>
-              </div>
-          </footer>
-          <p class="text-gray-500 dark:text-gray-400">Atender el ticket lo más pronto posible porfavor</p>
-          <div class="flex items-center mt-4 space-x-4">
-              <button type="button"
-                  class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400 font-medium">
-                  <svg class="mr-1.5 w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"/>
-                  </svg>
-                  Responder
-              </button>
-          </div>
-      </article>
-      <article class="p-6 mb-3 ml-6 lg:ml-12 text-base bg-white rounded-lg dark:bg-gray-900">
-          <footer class="flex justify-between items-center mb-2">
-              <div class="flex items-center">
-                <img class="mr-2 w-6 h-6 rounded-full" src="/assets/avatars/av-3.png"/>
-                  <p>Lucas Zamora</p>
-                  <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-02-12"
-                          title="February 12th, 2022">Feb. 12, 2022</time></p>
-              </div>
-              <!-- Dropdown menu -->
-          </footer>
-          <p class="text-gray-500 dark:text-gray-400">Buenas tardes ing.Andy, estamos en espera del cliente ☺️</p>
-          <div class="flex items-center mt-4 space-x-4">
-              <button type="button"
-                  class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400 font-medium">
-                  <svg class="mr-1.5 w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"/>
-                  </svg>
-                  Responder
-              </button>
-          </div>
-      </article>
-      <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">

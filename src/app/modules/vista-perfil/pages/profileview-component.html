@@ -3,8 +3,11 @@
   <header class="bg-primary text-primary-foreground px-6 py-4 flex justify-between items-center rounded-lg shadow-md">
     <h1 class="text-lg font-bold tracking-wide uppercase">Perfil de Usuario</h1>
     <div class="flex items-center gap-2">
-      <span>Jane Doe</span>
-      <img src="/src/assets/avatars/av-1.png" class="w-10 h-10 rounded-full" />
+      <span>Dimas Lopez</span>
+      <img
+      class="h-9 w-9 rounded-md"
+      src="../assets/avatars/av-1.png"
+      alt="" />
     </div>
   </header>
 
@@ -12,7 +15,7 @@
   <div class="mt-4">
     <a
       href="/dashboard"
-      class="bg-secondary text-secondary-foreground px-4 py-2 rounded-lg shadow-md hover:bg-secondary/90 text-sm font-medium"
+      class="text-xl font-bold leading-none text-gray-900 dark:text-white"
     >
       ← Regresar al Dashboard
     </a>
@@ -21,13 +24,12 @@
   <div class="grid md:grid-cols-3 gap-6 mt-6">
     <!-- Columna Izquierda -->
     <div class="bg-card p-6 rounded-lg shadow-md">
-      <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Jane" class="w-full rounded-lg" />
-      <h2 class="mt-4 text-xl font-semibold text-foreground">Jane Doe</h2>
-      <p class="text-muted-foreground">Owner at Her Company Inc.</p>
-      <p class="text-sm text-muted-foreground mt-2">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, eligendi dolorum...
-      </p>
-
+      <img
+      class="h-9 w-9 rounded-md"
+      src="../assets/avatars/av-1.png"
+      alt="" />
+      <h2 class="mt-4 text-xl font-semibold text-foreground">Dimas Lopez</h2>
+      <p class="text-muted-foreground">Ingeniero en Desarrollo y Gestión del software</p>
       <div class="mt-4">
         <div class="flex justify-between items-center text-sm">
           <span class="text-muted-foreground">Estado</span>
@@ -44,73 +46,19 @@
     <div class="md:col-span-2">
       <div class="bg-card p-6 rounded-lg shadow-md">
         <h3 class="font-semibold text-lg mb-4 text-foreground">Información Personal</h3>
-        <div class="grid grid-cols-2 text-sm gap-4">
-          <p><strong>Nombre:</strong> Jane</p>
-          <p><strong>Apellido:</strong> Doe</p>
-          <p><strong>Género:</strong> Femenino</p>
+        <div class="truncate text-sm font-medium text-gray-900 dark:text-white">
+          <p><strong>Nombre:</strong> Dimas</p>
+          <p><strong>Apellido:</strong> López</p>
+          <p><strong>Género:</strong> Masculino</p>
           <p><strong>Teléfono:</strong> +11 998001001</p>
           <p><strong>Dirección Actual:</strong> Beech Creek, PA, Pennsylvania</p>
           <p><strong>Dirección Permanente:</strong> Arlington Heights, IL, Illinois</p>
-          <p><strong>Email:</strong> <a class="text-primary hover:underline" href="mailto:jane&#64;example.com">jane&#64;example.com</a></p>
-          <p><strong>Cumpleaños:</strong> 06 Feb, 1998</p>
+          <p><strong>Email:</strong> <a class="text-primary hover:underline" href="mailto:jane&#64;example.com">montalcoarturo&#64;gmail.com</a></p>
+          <p><strong>Cumpleaños:</strong> 18 de mayo</p>
         </div>
-        <a href="#" class="text-primary text-sm mt-4 inline-block hover:underline">Mostrar Información Completa</a>
       </div>
 
       <div class="grid md:grid-cols-2 gap-6 mt-6">
-        <!-- Experiencia -->
-        <div class="bg-card p-6 rounded-lg shadow-md">
-          <h3 class="font-semibold text-lg mb-4 text-foreground">Experiencia</h3>
-          <ul class="text-sm text-primary space-y-2">
-            <li>
-              <p class="hover:underline">Owner at Her Company Inc.</p>
-              <span class="text-muted-foreground text-xs">Marzo 2020 - Actualidad</span>
-            </li>
-            <li>
-              <p class="hover:underline">Manager at Tech Solutions</p>
-              <span class="text-muted-foreground text-xs">Enero 2018 - Febrero 2020</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Educación -->
-        <div class="bg-card p-6 rounded-lg shadow-md">
-          <h3 class="font-semibold text-lg mb-4 text-foreground">Educación</h3>
-          <ul class="text-sm text-primary space-y-2">
-            <li>
-              <p class="hover:underline">Maestría en Oxford University</p>
-              <span class="text-muted-foreground text-xs">2016 - 2018</span>
-            </li>
-            <li>
-              <p class="hover:underline">Licenciatura en LPU</p>
-              <span class="text-muted-foreground text-xs">2012 - 2016</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Perfiles Similares -->
-  <div class="bg-card p-6 rounded-lg shadow-md mt-6">
-    <h3 class="font-semibold text-lg mb-4 text-foreground">Perfiles Similares</h3>
-    <div class="flex gap-6">
-      <div class="flex flex-col items-center text-sm">
-        <img src="https://randomuser.me/api/portraits/men/1.jpg" class="w-12 h-12 rounded-full" />
-        <span class="text-foreground">Kojstantin</span>
-      </div>
-      <div class="flex flex-col items-center text-sm">
-        <img src="https://randomuser.me/api/portraits/men/2.jpg" class="w-12 h-12 rounded-full" />
-        <span class="text-foreground">James</span>
-      </div>
-      <div class="flex flex-col items-center text-sm">
-        <img src="https://randomuser.me/api/portraits/women/3.jpg" class="w-12 h-12 rounded-full" />
-        <span class="text-foreground">Natie</span>
-      </div>
-      <div class="flex flex-col items-center text-sm">
-        <img src="https://randomuser.me/api/portraits/men/3.jpg" class="w-12 h-12 rounded-full" />
-        <span class="text-foreground">Casey</span>
-      </div>
-    </div>
-  </div>
+  <div>
 </div>
