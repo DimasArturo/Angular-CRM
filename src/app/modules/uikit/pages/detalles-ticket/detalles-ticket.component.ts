@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Ticket } from 'src/app/modules/uikit/model/tickets.model';
+import {Conversacion} from 'src/app/modules/uikit/model/conversacion.model';
 
 @Component({
   selector: 'app-detalles-ticket',
@@ -43,6 +44,9 @@ export class DetailsTicketComponent implements OnInit {
         console.error('Error al obtener los detalles del ticket:', err);
       },
     });
+  }
+  getConversacion(ticketId: string): void {
+    const url = `https://demo.gruposaom.com.mx:3008/crm/get-conversacion-ticket/${ticketId}1`;
   }
 
   /**
